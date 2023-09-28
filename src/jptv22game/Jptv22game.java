@@ -16,6 +16,9 @@ public class Jptv22game {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        App app;
+        app = new App();
+        app.run();
     }
     
 }
