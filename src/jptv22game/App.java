@@ -18,6 +18,7 @@ public class App {
         System.out.println("--- Game ---");
         Random random = new Random();
         boolean repeat = true;
+        int attemps = 3;
         do{
         int myNumber = random.nextInt (9-0+1)-0;
         System.out.println("Задумано число от 0 до 9, угадай какое: ");
@@ -27,13 +28,19 @@ public class App {
             System.out.println("Ты выйграл! Ура!");
         }else{
             System.out.println("Ты проиграл :(");
-        }
-        System.out.println("Нажмите буквy q для выхода, любую другую клавишу чтобы продолжить");
+            attemps = attemps - 1;
+            System.out.println("Попыток осталось: "+attemps);
+            if (attemps <= 0){
+            System.out.println("Ваши попытки закончились!");
+            System.out.println("Нажмите буквy q для выхода, любую другую клавишу чтобы продолжить");
         String q = scanner.nextLine();
         if(q.equals("q")){
             repeat = false;
         }
         System.out.println("--- End Game ---");
+            
+        }
+        }
     }while(repeat);
 }
 }
