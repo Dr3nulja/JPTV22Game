@@ -22,6 +22,8 @@ public class App {
         Random random = new Random();
         boolean repeat = true;
         int attempts = 3;
+        int coins = 10;
+       
 
         do {
             int myNumber = random.nextInt(10); // Генерируем число от 0 до 9
@@ -44,25 +46,31 @@ public class App {
             }
 
             if (myNumber == userNumber) {
+                coins ++;
                 System.out.println("Ты выиграл! Ура!");
                 repeat = false; // Завершаем игру, так как пользователь угадал число
-            } else {
-                System.out.println("Ты проиграл :(");
+            } else{
+                
+                System.out.println("Неверное число, попрбуй еще раз");
                 attempts--;
                 System.out.println("Попыток осталось: " + attempts);
 
                 if (attempts <= 0) {
+                    coins--;
+                    System.out.println("Ваше количество монет: " + coins);
                     System.out.println("Ваши попытки закончились!");
                     System.out.println("Нажмите букву 'q' для выхода, любую другую клавишу чтобы продолжить");
                     String q = scanner.nextLine();
 
                     if (q.equals("q")) {
                         repeat = false;
+                    }else {
+                        attempts = 3;
                     }
                 }
             }
         } while (repeat);
-
         System.out.println("--- End Game ---");
+        
     }
 }
